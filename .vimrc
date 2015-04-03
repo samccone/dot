@@ -48,11 +48,7 @@ augroup END
 
 " auto reload files on external change
 set autoread
-<<<<<<< HEAD
 
-" remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-=======
 au CursorHold * checktime
 
 "unite settings
@@ -88,4 +84,3 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
->>>>>>> more better
