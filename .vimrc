@@ -3,11 +3,15 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-let g:solarized_termcolors=256
-
 syntax enable
-set background=dark
-colorscheme hybrid_material
+
+colorscheme pencil
+set background=light
+
+let g:pencil_gutter_color = 1
+let g:pencil_terminal_italics = 1
+
+let g:airline_theme = 'pencil'
 
 " tabs -> spaces
 set expandtab
@@ -22,10 +26,6 @@ set backspace=indent,eol,start
 
 " show line numbers
 set number
-" remove git column background color
-highlight SignColumn ctermbg=none
-" remove line number background color
-highlight LineNR ctermbg=none
 
 set clipboard=unnamed
 
@@ -72,26 +72,14 @@ nnoremap <leader>f :<C-u>Unite grep:.<cr>
 " remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-" html checkers are not so useful
-let g:syntastic_html_checkers=['']
-" dart-vim-config
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/dart-vim-plugin
-endif
 filetype plugin indent on
 
 set nobackup       "no backup files
 set nowritebackup  "only in case you don't want a backup file while editing
 set noswapfile     "no swap files
+
+"control p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,bower_components/*
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
