@@ -83,3 +83,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,bower_components/*
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" always show airline
+set laststatus=2
+
+" remap sidebar to control l
+map <C-l> :NERDTreeToggle<cr>
